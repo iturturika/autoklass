@@ -1,0 +1,14 @@
+.Review{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

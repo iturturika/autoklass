@@ -1,0 +1,31 @@
+.Category{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    row-gap: 30px;
+    flex-direction: column;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    img{
+        width: 100%;
+        height: auto;
+        z-index: 2;
+    }
+    p{
+        font-size: 150px;
+        font-family: 'ProximaNovaBold';
+        margin: 0;
+        position: absolute;
+        top: 20px;
+        z-index: 1;
+    }
+}

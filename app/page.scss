@@ -1,0 +1,229 @@
+.wrap{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    row-gap: 90px;
+}
+
+header{
+    width: 90%;
+    margin: 0 auto;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    nav{
+        display: flex;
+        column-gap: 25px;
+        align-items: center;
+        z-index: 1;
+        a{
+            font-size: 20px;
+            font-family: 'ProximaNovaBold';
+        }
+    }
+}
+
+.main-screen{
+    height: 100vh;
+    background-color: #D6D6D6;
+}
+
+.main-screen__section{
+    width: 90%;
+    height: calc(100% - 150px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.main-screen__cta{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    row-gap: 20px;
+    p{
+        font-size: 32px;
+    }
+}
+
+.main-screen__button{
+    width: 180px;
+    height: 60px;
+    color: fff;
+    background-color: #ED1B23;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 24px;
+    font-family: 'ProximaNovaBold';
+    box-shadow: 0px 5px 10px #ED1B23;
+    border: none;
+    cursor: pointer;
+}
+
+.main-screen__img{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+    img{
+        width: 1000px;
+        height: auto;
+    }
+}
+
+.social-links{
+    width: 90%;
+    display: flex;
+    column-gap: 30px;
+    margin: 0 auto;
+}
+
+.categories-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-screen__wrap{
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.reviews-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.reviews-screen__wrap{
+    position: relative;
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.reviews-screen__gradient{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+}
+
+.advantages-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.advantages-screen__wrap{
+    position: relative;
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.teachers-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.teachers-screen__wrap{
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.instructors-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.instructors-screen__wrap{
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.map-screen{
+    height: calc(100vh - 90px);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.map-screen__wrap{
+    display: flex;
+    height: calc(100% - 40px);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.map{
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: none;
+}
+
+footer{
+    width: 100%;
+    background-color: #000000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    p{
+        font-family: 'ProximaNovaBold';
+        font-size: 24px;
+        color: #fff;
+    }
+}
+
+.footer__wrap{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.footer__social-links{
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.polygon-std-logo{
+    margin-left: auto;
+    margin-right: 0;
+}
