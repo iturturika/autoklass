@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    row-gap: 90px;
+    row-gap: 70px;
 }
 
 header{
@@ -27,12 +27,18 @@ header{
     }
 }
 
+.burger-menu{
+    display: none;
+}
+
 .main-screen{
     height: 100vh;
+    min-height: 500px;
     background-color: #D6D6D6;
 }
 
 .main-screen__section{
+    position: relative;
     width: 90%;
     height: calc(100% - 150px);
     margin: 0 auto;
@@ -68,12 +74,15 @@ header{
 }
 
 .main-screen__img{
+    position: relative;
     width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     z-index: 0;
     img{
+        position: absolute;
+        left: 0;
         width: 1000px;
         height: auto;
     }
@@ -87,7 +96,8 @@ header{
 }
 
 .categories-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -96,14 +106,15 @@ header{
 
 .categories-screen__wrap{
     display: flex;
-    height: calc(100% - 40px);
+    height: 100%;
     align-items: center;
     width: 100%;
     justify-content: space-between;
 }
 
 .reviews-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
 }
@@ -125,8 +136,17 @@ header{
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
 }
 
+.reviews-infinity-slider{
+    width: 100%;
+    display: flex;
+    position: relative;
+    column-gap: 30px;
+    position: absolute;
+}
+
 .advantages-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
 }
@@ -141,7 +161,8 @@ header{
 }
 
 .teachers-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
 }
@@ -155,7 +176,8 @@ header{
 }
 
 .instructors-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
 }
@@ -169,7 +191,8 @@ header{
 }
 
 .map-screen{
-    height: calc(100vh - 90px);
+    height: 100vh;
+    min-height: 500px;
     width: 90%;
     margin: 0 auto;
 }
@@ -226,4 +249,37 @@ footer{
 .polygon-std-logo{
     margin-left: auto;
     margin-right: 0;
+}
+
+.slider-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+}
+
+@media screen and (max-width: 1500px) {
+    header{
+        nav{
+            display: none;
+        }
+    }
+
+    .burger-menu{
+        display: block;
+    }
+
+    .main-screen__cta{
+        width: 65%;
+        z-index: 1;
+    }
+
+    .main-screen__img{
+        width: 35%;
+        img{
+            width: 800px;
+            left: -150px;
+            z-index: 0;
+        }
+    }
 }

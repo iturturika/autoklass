@@ -29,3 +29,14 @@
         z-index: 1;
     }
 }
+
+@media screen and (max-width: 1500px) {
+    .Category{
+        width: 200px;
+        height: 270px;
+        p{
+            font-size: 100px;
+        }
+    }
+    
+}

@@ -26,7 +26,9 @@ import classimg from '../public/assets/images/class.png';
 import PeopleCard from "@/components/PeopleCard/PeopleCard";
 import Logo from "@/components/Logo/Logo";
 import polygonstd from '../public/assets/images/polygon.std - logo.svg';
-import { motion, useInView} from "framer-motion";
+import { animate, motion, useInView, useMotionValue} from "framer-motion";
+import menusvg from '../public/assets/images/Menu.svg';
+import useMeasure from 'react-use-measure';
 
 export default function Home() {
   const reviewRef = React.useRef(null);
@@ -41,6 +43,31 @@ export default function Home() {
   const isInMap = useInView(mapRef, {once: true});
   const footerRef = React.useRef(null);
   const isInFooter = useInView(footerRef, {once: true});
+
+  const reviews = [
+    {id: 0, name: 'Mihaela0', review: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`},
+    {id: 1, name: 'Mihaela1', review: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`},
+    {id: 2, name: 'Mihaela2', review: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
+  ];
+
+  let [ref, {width}] = useMeasure();
+
+  const xTranslation = useMotionValue(0);
+
+  React.useEffect(() => {
+    let controls;
+    let finalPosition = -430 * 3 - 30;
+    console.log(width)
+    controls = animate(xTranslation, [0, finalPosition], {
+      ease: "linear",
+      duration: "20",
+      repeat: Infinity,
+      repeatType: "loop",
+      repeatDelay: 0
+    });
+
+    return controls.stop;
+  }, [xTranslation, width]);
 
   return (
     <div className="wrap">
@@ -120,6 +147,20 @@ export default function Home() {
                 </motion.div>
               </Link>
             </nav>
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="burger-menu"
+            >
+              <Image
+                src={menusvg}
+                width={40}
+                height={30}
+                quality={100}
+                alt="menu"
+              />
+            </motion.div>
+            
           </motion.div>
         </header>
         <div className="main-screen__section">
@@ -151,6 +192,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 0 }}
             animate={{opacity: 1, x: 0}}
           >
+            <div></div>
             <Image
               src={carpng}
               quality={100}
@@ -242,23 +284,24 @@ export default function Home() {
           opacity: isInReview ? 1 : 0,
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
         }}>
-          <div className="reviews-screen__gradient"></div>
-          <Review 
-            name={'Mihaela'} 
-            review={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
-          />
-          <Review 
-            name={'Mihaela'} 
-            review={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
-          />
-          <Review 
-            name={'Mihaela'} 
-            review={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
-          />
-          <Review 
-            name={'Mihaela'} 
-            review={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
-          />
+          
+          <motion.div
+            ref={ref}
+            style={{x: xTranslation}}
+            className="reviews-infinity-slider"
+          >
+          {
+            [...reviews, ...reviews].map((review, indx) => {
+              return (
+                <Review 
+                  key={indx}
+                  name={review.name} 
+                  review={review.review}
+                />
+              )
+            })
+          }
+          </motion.div>
         </div>
       </div>
       <div className="advantages-screen">

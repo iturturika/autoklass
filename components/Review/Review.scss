@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 30px;
-    width: 300px;
+    min-width: 400px;
     height: auto;
     padding: 15px;
     border: 1px solid rgb(210, 210, 210);
@@ -11,4 +11,10 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+
+@media screen and (max-width: 1500px) {
+    .Review{
+       
+    }
 }
