@@ -1,12 +1,12 @@
 import './PeopleCard.scss';
 import Image from 'next/image';
-import image from '../../public/assets/images/image.png';
 
-const PeopleCard = ({name}) => {
+
+const PeopleCard = ({name, img}) => {
   return (
     <div className='people-card'>
         <Image
-            src={image}
+            src={img}
             quality={100}
             alt="people"
         />

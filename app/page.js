@@ -26,9 +26,10 @@ import classimg from '../public/assets/images/class.png';
 import PeopleCard from "@/components/PeopleCard/PeopleCard";
 import Logo from "@/components/Logo/Logo";
 import polygonstd from '../public/assets/images/polygon.std - logo.svg';
-import { animate, motion, useInView, useMotionValue} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 import menusvg from '../public/assets/images/Menu.svg';
-import useMeasure from 'react-use-measure';
+import image from '../public/assets/images/image.png';
+import InfinitySlider from "@/components/InfinitySlider/InfinitySlider";
 
 export default function Home() {
   const reviewRef = React.useRef(null);
@@ -50,24 +51,23 @@ export default function Home() {
     {id: 2, name: 'Mihaela2', review: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
   ];
 
-  let [ref, {width}] = useMeasure();
+  const advantages = [
+    {img: autoimg, advantage: 'Самый большой автопарк учебной техники', description: `Автомобили принадлежат школе, а не инструкторам. Специалисты AutoKlas следят зарегулярностью технического обслуживания и чистотой. Чтобы практический курс проходил комфортно.`},
+    {img: polygonimg, advantage: 'Собственный, и самый большой автодром на севере Молдовы', description: `Наши ученики не стоят в очереди на уроках вождения, а все время занятия отрабатывают упражнения на авто автошколы.`},
+    {img: classimg, advantage: 'Светлые оборудованные классы', description: `В учебных помещениях AutoKlas есть все, чтобы получать знания и осваивать ПДД: удобная мебель, справочные материалы, мультимедийное оборудование.`},
+  ];
 
-  const xTranslation = useMotionValue(0);
+  const teachers = [
+    {img: image, name: 'Marina Lipec1'},
+    {img: image, name: 'Marina Lipec2'},
+    {img: image, name: 'Marina Lipec3'},
+  ];
 
-  React.useEffect(() => {
-    let controls;
-    let finalPosition = -430 * 3 - 30;
-    console.log(width)
-    controls = animate(xTranslation, [0, finalPosition], {
-      ease: "linear",
-      duration: "20",
-      repeat: Infinity,
-      repeatType: "loop",
-      repeatDelay: 0
-    });
-
-    return controls.stop;
-  }, [xTranslation, width]);
+  const instructors = [
+    {img: image, name: 'Marina Lipec1'},
+    {img: image, name: 'Marina Lipec2'},
+    {img: image, name: 'Marina Lipec3'},
+  ];
 
   return (
     <div className="wrap">
@@ -285,23 +285,19 @@ export default function Home() {
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
         }}>
           
-          <motion.div
-            ref={ref}
-            style={{x: xTranslation}}
-            className="reviews-infinity-slider"
-          >
-          {
-            [...reviews, ...reviews].map((review, indx) => {
-              return (
-                <Review 
-                  key={indx}
-                  name={review.name} 
-                  review={review.review}
-                />
-              )
-            })
-          }
-          </motion.div>
+          <InfinitySlider side={'left'}>
+            {
+              [...reviews, ...reviews].map((review, indx) => {
+                return (
+                  <Review 
+                    key={indx}
+                    name={review.name} 
+                    review={review.review}
+                  />
+                )
+              })
+            }
+          </InfinitySlider>
         </div>
       </div>
       <div className="advantages-screen">
@@ -314,21 +310,20 @@ export default function Home() {
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
           }}
         >
-          <Advantage 
-            img={autoimg} 
-            advantage={'Самый большой автопарк учебной техники'} 
-            description={`Автомобили принадлежат школе, а не инструкторам. Специалисты AutoKlas следят зарегулярностью технического обслуживания и чистотой. Чтобы практический курс проходил комфортно.`}
-          />
-          <Advantage 
-            img={polygonimg} 
-            advantage={'Собственный, и самый большой автодром на севере Молдовы'} 
-            description={`Наши ученики не стоят в очереди на уроках вождения, а все время занятия отрабатывают упражнения на авто автошколы.`}
-          />
-          <Advantage 
-            img={classimg} 
-            advantage={'Светлые оборудованные классы'} 
-            description={`В учебных помещениях AutoKlas есть все, чтобы получать знания и осваивать ПДД: удобная мебель, справочные материалы, мультимедийное оборудование.`}
-          />
+          <InfinitySlider side={'right'}>
+            {
+              [...advantages, ...advantages].map((advantage, indx) => {
+                return (
+                  <Advantage 
+                    key={indx}
+                    img={advantage.img} 
+                    advantage={advantage.advantage} 
+                    description={advantage.description}
+                  />
+                )
+              })
+            }
+          </InfinitySlider>
         </div>
       </div>
       <div className="teachers-screen">
@@ -340,9 +335,19 @@ export default function Home() {
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
           }}
         >
-          <PeopleCard name={'Marina Lipec'}/>
-          <PeopleCard name={'Marina Lipec'}/>
-          <PeopleCard name={'Marina Lipec'}/>
+          <InfinitySlider side={'left'}>
+            {
+              [...teachers, ...teachers].map((item, indx) => {
+                return (
+                  <PeopleCard 
+                    key={indx}
+                    name={item.name}
+                    img={item.img}
+                  />
+                )
+              })
+            }
+          </InfinitySlider>
         </div>
       </div>
       <div className="instructors-screen">
@@ -354,9 +359,19 @@ export default function Home() {
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
           }}
         >
-          <PeopleCard name={'Marina Lipec'}/>
-          <PeopleCard name={'Marina Lipec'}/>
-          <PeopleCard name={'Marina Lipec'}/>
+          <InfinitySlider side={'right'}>
+            {
+              [...instructors, ...instructors].map((item, indx) => {
+                return (
+                  <PeopleCard 
+                    key={indx}
+                    name={item.name}
+                    img={item.img}
+                  />
+                )
+              })
+            }
+          </InfinitySlider>
         </div>
       </div>
       <div className="map-screen">
