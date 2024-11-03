@@ -110,3 +110,25 @@ h4{
     font-family: 'ProximaNovaBold';
   }
 }
+
+@media screen and (max-width: 720px) {
+  h1{
+    font-size: 36px;
+    font-family: 'ProximaNovaBold';
+  }
+  
+  h2{
+    font-size: 36px;
+    font-family: 'ProximaNovaBold';
+  }
+  
+  h3{
+    font-size: 24px;
+    font-family: 'ProximaNovaBold';
+  }
+  
+  h4{
+    font-size: 20px;
+    font-family: 'ProximaNovaBold';
+  }
+}
